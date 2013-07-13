@@ -58,18 +58,19 @@ function drawSesh(seshData)
    }
 
    var normalizedSpotArr = normalizer([seshData.curr]);
-   PAPER.circle(normalizedSpotArr[0].lat, normalizedSpotArr[0].lon, "3")
+   PAPER.circle(Math.floor(normalizedSpotArr[0].lat), Math.floor(normalizedSpotArr[0].lon), "3")
         .attr('fill', 'red');
 
 }
 
 function objToPathString(points)
 {
-   var str = "M" + points[0].lon + "," + points[0].lat;
+   var str = "M" + Math.floor(points[0].lon) + "," + Math.floor(points[0].lat);
    for (var ii = 1; ii < points.length; ii++)
    {
-      str += ("L" + points[ii].lon + "," + points[ii].lat);
+      str += ("L" + Math.floor(points[ii].lon) + "," + Math.floor(points[ii].lat));
    }
+   return str;
 }
 
 function brush(typeString, pathToBrush)
@@ -85,7 +86,7 @@ function brush(typeString, pathToBrush)
 
 
    pathToBrush.attr('stroke-width', sizeMap(props[0]))
-              .attr('stroke', props[2]);
+              .attr('stroke', props[1]);
 }
 
 function sizeMap(sizeChar)
@@ -98,9 +99,9 @@ function sizeMap(sizeChar)
    {
       return '6';
    }
-   else if (sizeChar == 'M')
+   else if (sizeChar == 'L')
    {
-      return '12';
+      return '30';
    }
    else 
    {
