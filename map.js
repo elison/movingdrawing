@@ -1,6 +1,7 @@
+var map;
 function initMap()
 {
-   var map = L.map('map').setView([37.4235, -122.0718], 18);
+    map = L.map('map').setView([37.4235, -122.0718], 18);
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
       maxZoom: 25
     }).addTo(map);

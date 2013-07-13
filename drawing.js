@@ -13,49 +13,11 @@ var SESH_ID = 26;
 var gRespCount = 0;
 var gJSONLastResp = {};
 
-Object.prototype.mod = function (formatStr)
-{
-   if (formatStr == PATH_FORMAT)
-   {
-        this.attr('stroke', '#000')
-            .attr('stroke-opacity', '0.5')
-            .attr('stroke-linecap', 'round')
-            .attr('stroke-linejoin', 'round')
-            .attr('stroke-width', '3');
-   }
-}
 
 function initDrawing()
 {
    PAPER = Raphael($("#raphaelContainer")[0], DIV_WIDTH, DIV_HEIGHT);
    LOG("Raphael container initialized");
-   /*
-   gpath = PAPER.path(pstring)
-                .mod(PATH_FORMAT);
-   LOG("TestDraw");
-   */
-/*
-   var ex = {lines: [
-              {
-                 type: "DEFAULT",
-                 points: [ 
-                    {lat: 20,
-                     lon: 30},
-                    {lat: 25,
-                     lon: 35}
-                   ]:
-              }
-              ]
-            };
-
-   onRecieveLines(ex);
-*/
-   requestAllLines();
-}
-
-function requestAllLines()
-{
-   $.get(SERVER_URL + "/api/coord?session_id=" + SESH_ID,"",onRecieveLines);
 }
 
 function onRecieveLines(seshData, textStatus, jqXHR)
@@ -104,7 +66,16 @@ function objToPathString(points)
 
    console.log(str);
    PAPER.path(str)
-        .mod(PATH_FORMAT);
+        .attr('stroke', '#000')
+        .attr('stroke-opacity', '0.5')
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+        .attr('stroke-width', '3');
+}
+
+function brush(typeString)
+{
+   
 }
 
    

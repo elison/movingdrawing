@@ -9,7 +9,8 @@
   <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
 </head>
 <body>
-  <div id="map" style="width: 100%; height: 430px"></div>
+
+  <div id="map" style="width: 100%; height: 330px"></div>
 
   <script src="leaflet.js"></script>
   <script src="jquery-1.8.3.min.js"></script>
@@ -67,7 +68,7 @@
              addLine(lineData1.lat, lineData1.lon, lineData2.lat, lineData2.lon, color, weight);
             }           
         }
-      getSessionAjax();
+      setTimeout(getCoordsAjax, 2000);
     }
 
     getSessionAjax();
