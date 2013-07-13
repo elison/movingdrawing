@@ -52,7 +52,12 @@ function drawSesh(seshData)
    {
       var normalizedLineArr = normalizer(seshData.lines[ii].points);
       var lineString = objToPathString(normalizedLineArr);
-      PAPER.path(lineString);
+      var thePath = PAPER.path(lineString)
+                         .attr('stroke-opacity', '0.5')
+                         .attr('stroke-linecap', 'round')
+                         .attr('stroke-linejoin', 'round');
+
+      brush(seshData.lines[ii].type, thePath);
    }
 }
 
@@ -63,19 +68,42 @@ function objToPathString(points)
    {
       str += ("L" + points[ii].lon + "," + points[ii].lat);
    }
-
-   console.log(str);
-   PAPER.path(str)
-        .attr('stroke', '#000')
-        .attr('stroke-opacity', '0.5')
-        .attr('stroke-linecap', 'round')
-        .attr('stroke-linejoin', 'round')
-        .attr('stroke-width', '3');
 }
 
-function brush(typeString)
+function brush(typeString, pathToBrush)
 {
-   
+   if (typeString == "DEFAULT")
+   {
+      pathToBrush.attr('stroke-width', '3')
+                 .attr('stroke', 'black');
+      return;
+   }
+
+   var props = typeString.split('-');
+
+
+   pathToBrush.attr('stroke-width', sizeMap(props[0])
+              .attr('stroke', props[2]);
+}
+
+function sizeMap(sizeChar)
+{
+   if (sizeChar == 'S')
+   {
+      return '3';
+   }
+   else if (sizeChar == 'M')
+   {
+      return '6';
+   }
+   else if (sizeChar == 'M')
+   {
+      return '12';
+   }
+   else 
+   {
+      return 100;
+   }
 }
 
    
