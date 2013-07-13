@@ -28,7 +28,7 @@
       L.polyline([
         [lat1, long1],
         [lat2, long2]
-      ], [color: color || "blue", weight: weight || 5]).addTo(map);
+      ], {color: color || "blue", weight: weight || 5}).addTo(map);
     }
 
     function changeView(lat, longt){
