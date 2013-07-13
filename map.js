@@ -17,7 +17,18 @@ function initMap()
 
   function addMarker(lat, longt)
   {
-    marker = new L.marker([lat,longt],{riseOnHover: false}).addTo(map);
+    var brush = L.icon({
+          iconUrl: 'images/marker-icon-2x.png',
+          shadwoUrl: 'image/marker-shadow.png',
+
+          iconSize:  [70,40],
+          shadowSize:  [70,40],
+          iconAnchor:  [35, 40],
+          shadowAnchor: [35, 40],
+          popupAnchor: [0,0]
+    });
+
+    marker = new L.marker([lat,longt],{icon: brush, riseOnHover: false}).addTo(map);
     marker.setZIndexOffset(0);
   }
 
