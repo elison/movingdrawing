@@ -8,16 +8,16 @@ function init()
 }
 
  function getSessionAjax(){
-   $.get('http://still-hamlet-4033.herokuapp.com/api/latest', findSession);
+   $.get('http://still-hamlet-4033.herokuapp.com/api/latest', "", findSession);
  }
 
  function findSession(data){
-   sessionId = session_id;
+   sessionId = data.session_id;
    getCoordsAjax();
  }
 
  function getCoordsAjax(){
-   $.get('http://still-hamlet-4033.herokuapp.com/api/coord?session_id='+sessionId, processResponse);
+   $.get('http://still-hamlet-4033.herokuapp.com/api/coord?session_id='+sessionId, "", processResponseRouter);
  }
 
  function processResponseRouter(data)
