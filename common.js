@@ -13,11 +13,12 @@ function init()
 
  function findSession(data){
    sessionId = data.session_id;
-   sessionId = 2;
    getCoordsAjax();
  }
 
  function getCoordsAjax(){
+   if(marker)
+      map.removeLayer(marker)
    $.get('http://still-hamlet-4033.herokuapp.com/api/coord?session_id='+sessionId, "", processResponseRouter);
  }
 
