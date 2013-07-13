@@ -20,6 +20,7 @@
     var lineNumber = 0;
     var pointNumber = 0;
     var sessionId = 0;
+    var marker;
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
       maxZoom: 25
     }).addTo(map);
@@ -33,7 +34,7 @@
 
     function addMarker(lat, longt)
     {
-      L.marker([lat,longt]).addTo(map);
+      marker = new L.marker([lat,longt]).addTo(map);
     }
 
     function changeView(lat, longt){
@@ -50,6 +51,8 @@
     }
 
     function getCoordsAjax(){
+      if(marker)
+        map.removeLayer(marker)
       $.get('http://still-hamlet-4033.herokuapp.com/api/coord?session_id='+sessionId, processResponse);
 
     }
