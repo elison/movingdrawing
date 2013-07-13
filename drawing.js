@@ -59,7 +59,7 @@ function drawSesh(seshData)
 
    var normalizedSpotArr = normalizer([seshData.curr]);
    PAPER.image("images/marker-icon-2x.png", Math.floor(normalizedSpotArr[0].lon)-20, 
-                                            Math.floor(normalizedSpotArr[0].lat)-20, 40, 40);
+                                            Math.floor(normalizedSpotArr[0].lat)-40, 40, 40);
 
 }
 
