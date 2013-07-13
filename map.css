@@ -468,16 +468,25 @@
 
 #raphaelContainer
 {
-   position:absolute;
+  /* position:absolute;*/
    width: 500px;
    height: 500px;
+   display: inline-block;
 }
 #map
 {
-   position:absolute;
-   left: 550px;
+/*   position:absolute;
+   left: 550px;*/
    width: 500px;
    height: 500px;
+   display: inline-block;
+}
+#content_wrapper
+{
+   text-align: center;
+   width: 1080px;
+   margin-left: auto;
+   margin-right: auto;
 }
    
    
