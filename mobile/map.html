@@ -9,13 +9,13 @@
   <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
 </head>
 <body>
-  <div id="map" style="width: 300px; height: 400px"></div>
+  <div id="map" style="width: 225px; height: 300px"></div>
 
   <script src="leaflet.js"></script>
   <script src="jquery-1.8.3.min.js"></script>
   <script>
 
-    var map = L.map('map').setView([37.4235, -122.0714], 18);
+    var map = L.map('map').setView([37.4235, -122.0714], 17);
     var lineNumber = 0;
     var pointNumber = 0;
     var sessionId = 0;
@@ -31,7 +31,7 @@
     }
 
     function changeView(lat, longt){
-      map.setView([lat, longt], 18);
+      map.setView([lat, longt], 17);
     }
 
     function getSessionAjax(){
