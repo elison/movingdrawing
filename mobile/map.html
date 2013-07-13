@@ -3,8 +3,6 @@
 <head>
   <meta charset="utf-8" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="map.css" />
   <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
 </head>
@@ -21,6 +19,7 @@
     var pointNumber = 0;
     var sessionId = 0;
     var marker;
+    var tracker;
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
       maxZoom: 25
     }).addTo(map);
@@ -48,6 +47,9 @@
 
     function findSession(data){
       sessionId = data.session_id;
+      if (tracker != sessionId)
+        map.removeLayer('overlayPlane');
+      tracker = sessionId;
       getCoordsAjax();
     }
 
