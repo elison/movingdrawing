@@ -33,7 +33,7 @@
 
     function addMarker(lat, longt)
     {
-      L.circle([lat,longt], 2).addTo(map);
+      L.marker([lat,longt]).addTo(map);
     }
 
     function changeView(lat, longt){
@@ -73,7 +73,7 @@
              addLine(lineData1.lat, lineData1.lon, lineData2.lat, lineData2.lon, color, weight);
             }           
           }
-        addMarker(data.curr.lat, data.curr.lon);
+        addMarker(37.4235, -122.0714);
       setTimeout(getCoordsAjax, 2000);
     }
     getSessionAjax();
