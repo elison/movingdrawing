@@ -50,7 +50,7 @@ function drawSesh(seshData)
       var normalizedLineArr = normalizer(seshData.lines[ii].points);
       var lineString = objToPathString(normalizedLineArr);
       var thePath = PAPER.path(lineString)
-                         .attr('stroke-opacity', '0.5')
+                         .attr('stroke-opacity', '0.7')
                          .attr('stroke-linecap', 'round')
                          .attr('stroke-linejoin', 'round');
    
@@ -58,8 +58,8 @@ function drawSesh(seshData)
    }
 
    var normalizedSpotArr = normalizer([seshData.curr]);
-   PAPER.image("images/marker-icon-2x.png", Math.floor(normalizedSpotArr[0].lon), 
-                                            Math.floor(normalizedSpotArr[0].lat), 40, 40);
+   PAPER.image("images/marker-icon-2x.png", Math.floor(normalizedSpotArr[0].lon)-10, 
+                                            Math.floor(normalizedSpotArr[0].lat)-30, 40, 40);
 
 }
 
