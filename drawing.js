@@ -67,10 +67,15 @@ function objToPathString(points)
    console.log(str);
    PAPER.path(str)
         .attr('stroke', '#000')
-            .attr('stroke-opacity', '0.5')
-            .attr('stroke-linecap', 'round')
-            .attr('stroke-linejoin', 'round')
-            .attr('stroke-width', '3');
+        .attr('stroke-opacity', '0.5')
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+        .attr('stroke-width', '3');
+}
+
+function brush(typeString)
+{
+   
 }
 
    
