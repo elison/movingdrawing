@@ -73,7 +73,7 @@
              addLine(lineData1.lat, lineData1.lon, lineData2.lat, lineData2.lon, color, weight);
             }           
           }
-        addMarker(37.4235, -122.0714);
+        addMarker(data.curr.lat, data.curr.lon);
       setTimeout(getCoordsAjax, 2000);
     }
     getSessionAjax();
