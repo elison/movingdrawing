@@ -58,8 +58,8 @@ function drawSesh(seshData)
    }
 
    var normalizedSpotArr = normalizer([seshData.curr]);
-   PAPER.circle(Math.floor(normalizedSpotArr[0].lon), Math.floor(normalizedSpotArr[0].lat), "3")
-        .attr('fill', 'red');
+   PAPER.image("images/marker-icon-2x.png", Math.floor(normalizedSpotArr[0].lon), 
+                                            Math.floor(normalizedSpotArr[0].lat), 40, 40);
 
 }
 

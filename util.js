@@ -33,7 +33,7 @@ function getNormalizer(sesh, width, height)
 
    for (var jj = 0; jj < sesh.lines.length; jj++)
    {
-      for (var ii = 0; ii < sesh.lines[jj].points.length; ii++)
+      for (var ii = 0; ii < sesh.lines[jj].points.length - 2; ii++)
       {
          lats.push(sesh.lines[jj].points[ii].lat);
          lons.push(sesh.lines[jj].points[ii].lon);
