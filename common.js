@@ -13,7 +13,6 @@ function init()
 
  function findSession(data){
    sessionId = data.session_id;
-   sessionId = 2;
    getCoordsAjax();
  }
 
