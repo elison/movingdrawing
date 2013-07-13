@@ -25,7 +25,7 @@ Object.prototype.mod = function (formatStr)
    }
 }
 
-function init()
+function initDrawing()
 {
    PAPER = Raphael($("#raphaelContainer")[0], DIV_WIDTH, DIV_HEIGHT);
    LOG("Raphael container initialized");
