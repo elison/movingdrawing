@@ -465,3 +465,19 @@
 	-webkit-border-radius: 2px;
 	        border-radius: 2px;
 	}
+
+#raphaelContainer
+{
+   position:absolute;
+   width: 500px;
+   height: 500px;
+}
+#map
+{
+   position:absolute;
+   left: 550px;
+   width: 500px;
+   height: 500px;
+}
+   
+   
