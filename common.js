@@ -24,7 +24,7 @@ function init()
 
  function processResponseRouter(data)
  {
-    setTimeout(getCoordsAjax, 1500);
+    setTimeout(getSessionAjax, 1500);
     //Elison
     processResponse(data);
 
