@@ -31,11 +31,11 @@ function initMap()
           var types = data.lines[j].type.split("-");
             var color = types[1];
             var weight = types[0];
-            if (types[1] == "S")
+            if (types[0] == "S")
                 weight = 3;
-            if (types[1] == "M")
-                weight = 5;
-            if (types[1] == "L")
+            if (types[0] == "M")
+                weight = 6;
+            if (types[0] == "L")
                 weight = 12;
          var pointLength = data.lines[j].points.length;
         for(var i = 1; i < pointLength-2; i++)
