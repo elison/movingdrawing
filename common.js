@@ -14,7 +14,7 @@ function init()
 
  function findSession(data){
    sessionId = data.session_id;
-   if (tracker !- sessionId)
+   if (tracker != sessionId)
     map.removeLayer('overlayPlane');
    getCoordsAjax();
  }
