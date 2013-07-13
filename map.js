@@ -47,7 +47,7 @@ function initMap()
             if (types[0] == "M")
                 weight = 6;
             if (types[0] == "L")
-                weight = 12;
+                weight = 8;
          var pointLength = data.lines[j].points.length;
         for(var i = 1; i < pointLength-2; i++)
          {
