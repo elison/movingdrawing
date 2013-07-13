@@ -28,7 +28,12 @@
       L.polyline([
         [lat1, long1],
         [lat2, long2]
-      ], [color: color || "blue", weight: weight || 5]).addTo(map);
+      ], {color: color || "blue", weight: weight || 5}).addTo(map);
+    }
+
+    function addMarker(lat, longt)
+    {
+      L.circle([lat,longt], 2).addTo(map);
     }
 
     function changeView(lat, longt){
@@ -54,11 +59,11 @@
             var types = data.lines[j].type.split("-");
             var color = types[1];
             var weight;
-            if (types[1] == "SMALL")
+            if (types[1] == "S")
                 weight = 3;
-            if (types[1] == "MEDIUM")
-                weight = 6;
-            if (types[1] == "LARGE")
+            if (types[1] == "M")
+                weight = 5;
+            if (types[1] == "L")
                 weight = 12;
             var pointLength = data.lines[j].points.length;
            for(var i = 1; i < pointLength; i++)
@@ -67,10 +72,10 @@
              var lineData2 = data.lines[j].points[i-1];
              addLine(lineData1.lat, lineData1.lon, lineData2.lat, lineData2.lon, color, weight);
             }           
-        }
+          }
+        addMarker(data.curr.lat, data.curr.lon);
       setTimeout(getCoordsAjax, 2000);
     }
-
     getSessionAjax();
   </script>
 </body>
