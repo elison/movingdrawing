@@ -8,16 +8,17 @@ function initMap()
     }).addTo(map);
 }
 
- function addLine(lat1, long1, lat2, long2){
+ function addLine(lat1, long1, lat2, long2, color, weight){
    L.polyline([
      [lat1, long1],
      [lat2, long2]
-   ]).addTo(map);
+   ], {color: color || "blue", weight: weight || 5}).addTo(map);
  }
 
   function addMarker(lat, longt)
   {
-    marker = new L.marker([lat,longt]).addTo(map);
+    marker = new L.marker([lat,longt],{riseOnHover: false}).addTo(map);
+    marker.setZIndexOffset(0);
   }
 
  function changeView(lat, longt){
