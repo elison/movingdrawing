@@ -27,5 +27,5 @@ function init()
     processResponse(data);
 
     //Keaton
-    onRecieveLines(data);
+    onReceiveLines(data, null, null);
  }

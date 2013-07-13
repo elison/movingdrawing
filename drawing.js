@@ -20,7 +20,7 @@ function initDrawing()
    LOG("Raphael container initialized");
 }
 
-function onRecieveLines(seshData, textStatus, jqXHR)
+function onReceiveLines(seshData, textStatus, jqXHR)
 {
    console.log("recieved response " + gRespCount);
    gRespCount++;
@@ -36,9 +36,6 @@ function onRecieveLines(seshData, textStatus, jqXHR)
       gJSONLastResp = JSONCurResp;
       drawSesh(seshData);
    }
-
-   // now do it again
-   requestAllLines();
 }
 
 function drawSesh(seshData)
@@ -56,9 +53,14 @@ function drawSesh(seshData)
                          .attr('stroke-opacity', '0.5')
                          .attr('stroke-linecap', 'round')
                          .attr('stroke-linejoin', 'round');
-
+   
       brush(seshData.lines[ii].type, thePath);
    }
+
+   var normalizedSpotArr = normalizer([seshData.curr]);
+   PAPER.circle(normalizedSpotArr[0].lat, normalizedSpotArr[0].lon, "3")
+        .attr('fill', 'red');
+
 }
 
 function objToPathString(points)
@@ -82,7 +84,7 @@ function brush(typeString, pathToBrush)
    var props = typeString.split('-');
 
 
-   pathToBrush.attr('stroke-width', sizeMap(props[0])
+   pathToBrush.attr('stroke-width', sizeMap(props[0]))
               .attr('stroke', props[2]);
 }
 
@@ -104,6 +106,20 @@ function sizeMap(sizeChar)
    {
       return 100;
    }
+}
+
+var curvy;
+var stringy;
+function test()
+{
+   var str = "M30,30L80,80L20,120";
+
+   PAPER.path(str);
+   curvy = Raphael.path2curve(str);
+
+   stringy = toCurveString(curvy);
+
+   PAPER.path(stringy);
 }
 
    
